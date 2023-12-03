@@ -1,0 +1,54 @@
+# Import the random module
+import random
+
+# Define a list of choices
+choices = ["rock", "paper", "scissors"]
+
+# Define a function to determine the winner
+def winner(player, computer):
+  # If the choices are the same, it is a tie
+  if player == computer:
+    return "It's a tie!"
+  # If the player chooses rock
+  elif player == "rock":
+    # If the computer chooses paper, the computer wins
+    if computer == "paper":
+      return "You lose! Paper covers rock."
+    # If the computer chooses scissors, the player wins
+    elif computer == "scissors":
+      return "You win! Rock smashes scissors."
+  # If the player chooses paper
+  elif player == "paper":
+    # If the computer chooses scissors, the computer wins
+    if computer == "scissors":
+      return "You lose! Scissors cut paper."
+    # If the computer chooses rock, the player wins
+    elif computer == "rock":
+      return "You win! Paper covers rock."
+  # If the player chooses scissors
+  elif player == "scissors":
+    # If the computer chooses rock, the computer wins
+    if computer == "rock":
+      return "You lose! Rock smashes scissors."
+    # If the computer chooses paper, the player wins
+    elif computer == "paper":
+      return "You win! Scissors cut paper."
+
+# Define a function to play the game
+def play():
+  # Ask the player to enter their choice
+  player = input("Enter your choice (rock, paper, or scissors): ")
+  # Validate the player's choice
+  while player not in choices:
+    print("Invalid choice. Please try again.")
+    player = input("Enter your choice (rock, paper, or scissors): ")
+  # Randomly select the computer's choice
+  computer = random.choice(choices)
+  # Print the choices
+  print("You chose:", player)
+  print("The computer chose:", computer)
+  # Print the result
+  print(winner(player, computer))
+
+# Call the play function
+play()
